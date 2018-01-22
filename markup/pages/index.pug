@@ -1,0 +1,49 @@
+doctype html
+html(class="no-js", lang="ru")
+    include ../../node_modules/bemto.pug/bemto.pug
+    include ../components/head/head.pug
+
+    head
+        +head(head.defaults)
+    body
+        +b.container
+            +b.wrapper-form
+                +b.FORM.form-pay(id='form' method="POST")
+                    +e.title Продаем почку
+                    +b.input-wrap
+                        +e.INPUT.input(value="1000000" id='priceVal')
+                        +e.LABEL.label Стоимость
+
+                    +b.input-wrap
+                        +e.INPUT.input(id='adressVal' data-target="#indexVal")
+                        +e.LABEL.label Адрес
+
+                    +b.input-wrap
+                        +e.INPUT.input(id='indexVal')
+                        +e.LABEL.label Индекс
+                    +b.wrapper-document
+                        +b.document-download(data-multiple="true")
+                            +e.wrap
+                                +e.delete Удалить
+                                +e.clear Очистить
+                                +e.title Выбрать документ
+                                +e.add
+                                    |Перетащите или
+                                    +e.SPAN  загрузите документ
+                                +e.INPUT.file(type='file' id='asdczs')
+
+                    +e.title Вам есть 18 лет?
+                    +b.radio-wrap
+                        +e.content
+                            +b.radio-controller
+                                +e.INPUT.button(type='radio' data-yes='true' name="radio" id="radio-1")
+                                +e.LABEL(for="radio-1") Да
+                            +b.radio-controller
+                                +e.INPUT.button(type='radio' name="radio" id="radio-2")
+                                +e.LABEL(for="radio-2") Нет
+
+                    +e.BUTTON.button-submit(disabled='true')
+                        span Отправить
+
+        script(src='../../static/js/main.js')
+
